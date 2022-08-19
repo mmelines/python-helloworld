@@ -10,23 +10,18 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
-      - 
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      - 
-        name: "Set up QEMU"
+      - name: "Set up QEMU"
         uses: docker/setup-quemu-action@v1
-      - 
-        name: "Setup Docker Buildx"
+      - name: "Setup Docker Buildx"
         uses: docker/setup-build-x-action@v1
-      - 
-        name: "Login to Dockerhub"
+      - name: "Login to Dockerhub"
         uses: docker/login-action@v1
         with: 
           password: "${{ secrets.DOCKERHUB_TOKEN }}"
           username: "${{ secrets.DOCKERHUB_USERNAME }}"
-      - 
-        name: "Build and push"
+      - name: "Build and push"
         uses: docker/build-push-action@v2
         with:
           context: .
