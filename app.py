@@ -13,7 +13,6 @@ def healthcheck():
     )
     app.logger.info('Status request successfull')
     app.logger.debug('DEBUG message')
-    print("something changed here")
     return response
 
 @app.route('/metrics')
